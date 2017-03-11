@@ -4,6 +4,7 @@ angular.module('todoController', [])
 	.controller('mainController', ['$scope','$http','Todos', function($scope, $http, Todos) {
 		$scope.formData = {};
 		$scope.loading = true;
+		$scope.config = { backend: Todos.backend };
 
 		// GET =====================================================================
 		// when landing on the page, get all todos and show them
@@ -47,4 +48,18 @@ angular.module('todoController', [])
 					$scope.todos = data; // assign our new list of todos
 				});
 		};
+
+		$scope.setBackend = function() {
+			var newBackend = $scope.config.backend;
+			if (newBackend != undefined) {
+				Todos.backend = newBackend;
+				$scope.loading = true;
+				Todos.get()
+					.success(function(data) {
+						$scope.todos = data;
+						$scope.loading = false;
+					});
+			}
+		};
 	}]);
+	
