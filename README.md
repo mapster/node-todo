@@ -1,31 +1,105 @@
-# Node Todo App
+# Google Cloud App Engine workshop
+This is an introductory workshop to Google Cloud App Engine. The contents of this repository is a nodejs angular 
+front-end with configurable back-end. The intention is that the instructors has set this application up as the 
+```default``` service in a Google Cloud project that the workshop participants will be given access to.
 
-A Node app built with MongoDB and Angular. For demonstration purposes and a tutorial.
+The workshop will introduce the participants to
+* Google Cloud SDK
+* Google Cloud Console
+* Basic Spring Boot
+* Application deployment with Google Cloud
 
-Node provides the RESTful API. Angular provides the frontend and accesses the API. MongoDB stores like a hoarder.
+Instructors must speak about the following topics
+* Spring Boot (basic introduction)
+* Spring Rest services
+    * ```@RestController```
+    * ```@RequestMapping```
+    * ```@CrossOrigin```
+* CORS
+* Google Cloud Console
+    * App Engine
+    * Logging
 
-## Requirements
+## Pre-requisites
+* All participants must have a Google account
+    * Can be Gmail or private email connected to a Google account
+* Laptop 
+    * IntelliJ (recommended) or other Java IDE
+    * JDK 8
+    * Maven
+    * nodejs
+    * git
+* Access to a Google Cloud Project with billing
+    * Provided by instructors
 
-- [Node and npm](http://nodejs.org)
-- MongoDB: Make sure you have your own local or remote MongoDB database URI configured in `config/database.js`
+## Setup
+1. Install google-cloud-sdk:
+    * https://cloud.google.com/sdk/docs
+    * project: computas-universitet
+    * Follow the quickstart guide for your O/S
+2. Launch IntelliJ
+    1. Create new project with Spring Initializr
+    2. Enter groupId and artifactId
+    3. Dependencies: Web/Web 
+    4. Complete project
+3. Add the following to the ```<plugins>``` section of pom.xml
+```
+<plugin>
+    <groupId>com.google.cloud.tools</groupId>
+    <artifactId>appengine-maven-plugin</artifactId>
+    <version>1.0.0</version>
+</plugin>
+```
+4. Create file ```src/main/appengine/app.yml``` replace ```<your service>``` with a unique identity for your backend 
+    implementation, e.g. ```ahr```
+```
+runtime: java
+env: flex
+service: <your service>
 
-## Installation
+handlers:
+- url: /.*
+  script: this field is required, but ignored
+  secure: always  # Require HTTPS
+  
+manual_scaling:
+  instances: 1
+```
+6. Verify that your application works by running the ```*Application``` class (has a main-method)
+6. You can now deploy the application ```mvn appengine:deploy```
+7. Implement a REST service endpoint that has the following methods, see https://spring.io/guides/gs/rest-service/
+    * ```GET /api/todos```
+        * Returns the list of existing _Todo_-elements
+    * ```POST /api/todos```
+        * Accepts a _Todo_-element as RequestBody (payload)
+        * Adds the _Todo_-element to the list of _Todo_-elements
+        * Returns the list of existing _Todo_-elements (including the new)
+    * ```DELETE /api/todos/{id}```
+        * ```{id}``` is a PathVariable
+        * Delete the _Todo_-element with the specified ```id```
+        * Returns the list of existing _Todo_-elements (not-including the deleted)
+    * All payloads (RequestBody and ResponseBody) shall be json
+    * _Todo_ datastructure
+    ```
+    {
+        "_id": "some unique string identifier">
+        "text": "<the todo text>"
+    }
+    ```
+    
+## Development
+During development it is important to have a good process where the developer easily can test the implementation 
+without hassle. This is why developers always should have a local development environment where the application
+can run so that one does not have to deploy to test it. With spring-boot you can launch your application as is on
+your development computer, and we recommend that you also set up the front-end application to facilitate integration
+testing.
 
-1. Clone the repository: `git clone git@github.com:scotch-io/node-todo`
-2. Install the application: `npm install`
-3. Place your own MongoDB URI in `config/database.js`
-3. Start the server: `node server.js`
-4. View in browser at `http://localhost:8080`
+### Start the back-end
+Run the main-method of the ```*Application``` class.
 
-## Tutorial Series
+### Front-end setup
+1. Clone the node-todo repository ```https://github.com/mapster/node-todo.git```
+2. Install dependencies. Run ```npm install``` in the cloned project
+3. Start the front-end ```npm start```
 
-This repo corresponds to the Node Todo Tutorial Series on [scotch.io](http://scotch.io)
-
-Each branch represents a certain tutorial.
-- tut1-starter: [Creating a Single Page Todo App with Node and Angular](http://scotch.io/tutorials/javascript/creating-a-single-page-todo-app-with-node-and-angular)
-- tut2-organization: [Application Organization and Structure](https://scotch.io/tutorials/node-and-angular-to-do-app-application-organization-and-structure)
-- tut3-services: [Controllers and Services](https://scotch.io/tutorials/node-and-angular-to-do-app-controllers-and-services)
-
-Happy Todo-ing!
-
-![Todo-aholic](http://i.imgur.com/ikyqgrn.png)
+You are now ready to start working.
