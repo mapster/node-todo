@@ -1,6 +1,6 @@
 # Google Cloud App Engine workshop
-This is an introductory workshop to Google Cloud App Engine. The contents of this repository is a nodejs angular 
-front-end with configurable back-end. The intention is that the instructors has set this application up as the 
+This is an introductory workshop to Google Cloud App Engine. The contents of this repository is a nodejs angular
+front-end with configurable back-end. The intention is that the instructors has set this application up as the
 ```default``` service in a Google Cloud project that the workshop participants will be given access to.
 
 The workshop will introduce the participants to
@@ -23,7 +23,7 @@ Instructors must speak about the following topics
 ## Pre-requisites
 * All participants must have a Google account
     * Can be Gmail or private email connected to a Google account
-* Laptop 
+* Laptop
     * IntelliJ (recommended) or other Java IDE
     * JDK 8
     * Maven
@@ -40,7 +40,7 @@ Instructors must speak about the following topics
 2. Launch IntelliJ
     1. Create new project with Spring Initializr
     2. Enter groupId and artifactId
-    3. Dependencies: Web/Web 
+    3. Dependencies: Web/Web
     4. Complete project
 3. Add the following to the ```<plugins>``` section of pom.xml
 ```
@@ -50,7 +50,7 @@ Instructors must speak about the following topics
     <version>1.0.0</version>
 </plugin>
 ```
-4. Create file ```src/main/appengine/app.yml``` replace ```<your service>``` with a unique identity for your backend 
+4. Create file ```src/main/appengine/app.yml``` replace ```<your service>``` with a unique identity for your backend
     implementation, e.g. ```ahr```
 ```
 runtime: java
@@ -61,7 +61,7 @@ handlers:
 - url: /.*
   script: this field is required, but ignored
   secure: always  # Require HTTPS
-  
+
 manual_scaling:
   instances: 1
 ```
@@ -82,13 +82,13 @@ manual_scaling:
     * _Todo_ datastructure
     ```
     {
-        "_id": "some unique string identifier">
+        "_id": "<some_unique_string_identifier>"
         "text": "<the todo text>"
     }
     ```
-    
+
 ## Development
-During development it is important to have a good process where the developer easily can test the implementation 
+During development it is important to have a good process where the developer easily can test the implementation
 without hassle. This is why developers always should have a local development environment where the application
 can run so that one does not have to deploy to test it. With spring-boot you can launch your application as is on
 your development computer, and we recommend that you also set up the front-end application to facilitate integration
