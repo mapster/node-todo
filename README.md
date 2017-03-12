@@ -1,7 +1,5 @@
 # Google Cloud App Engine workshop
-This is an introductory workshop to Google Cloud App Engine. The contents of this repository is a nodejs angular
-front-end with configurable back-end. The intention is that the instructors has set this application up as the
-```default``` service in a Google Cloud project that the workshop participants will be given access to.
+This is an introductory workshop to Google Cloud App Engine. In this repository you will find the nodejs/angular front-end application that the participants shall implement a back-end for. The front-end application has a configurable back-end so this application will only have to be deployed once, and then all the participants can use it. The intention is that the instructors has set this application up as the ```default``` service in a Google Cloud project that the workshop participants will be given access to.
 
 The workshop will introduce the participants to
 * Google Cloud SDK
