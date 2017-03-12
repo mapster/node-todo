@@ -3,9 +3,8 @@ angular.module('todoService', [])
 	// super simple service
 	// each function returns a promise object
 	.factory('Todos', ['$http', function($http) {
-		var backend = {url: 'http://localhost:8080'};
 		return {
-			backend: 'http://localhost:8080',
+			backend: 'http://ahr-dot-computas-universitet.appspot.com',
 			get : function() {
 				return $http.get(this.backend + '/api/todos');
 			},
