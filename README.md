@@ -13,6 +13,8 @@ Instructors must speak about the following topics
     * ```@RestController```
     * ```@RequestMapping```
     * ```@CrossOrigin```
+    * ```@RequestBody```
+    * ```@PathVariable```
 * CORS
 * Google Cloud Console
     * App Engine
@@ -24,8 +26,8 @@ Instructors must speak about the following topics
 * Laptop
     * IntelliJ (recommended) or other Java IDE
     * JDK 8
-    * Maven
-    * nodejs
+    * Maven 3
+    * nodejs (>= 6.10.1)
     * git
 * Access to a Google Cloud Project with billing
     * Provided by instructors
@@ -33,7 +35,7 @@ Instructors must speak about the following topics
 ## Setup
 1. Install google-cloud-sdk:
     * https://cloud.google.com/sdk/docs
-    * project: computas-universitet
+    * project: sinuous-tine-156112
     * Follow the quickstart guide for your O/S
 2. Launch IntelliJ
     1. Create new project with Spring Initializr
@@ -48,7 +50,7 @@ Instructors must speak about the following topics
     <version>1.0.0</version>
 </plugin>
 ```
-4. Create file ```src/main/appengine/app.yml``` replace ```<your service>``` with a unique identity for your backend
+4. Create file ```src/main/appengine/app.yaml``` replace ```<your service>``` with a unique identity for your backend
     implementation, e.g. ```ahr```
 ```
 runtime: java

@@ -4,7 +4,7 @@ angular.module('todoService', [])
 	// each function returns a promise object
 	.factory('Todos', ['$http', function($http) {
 		return {
-			backend: 'http://ahr-dot-computas-universitet.appspot.com',
+			backend: 'https://ahr-dot-sinuous-tine-156112.appspot.com',
 			get : function() {
 				return $http.get(this.backend + '/api/todos');
 			},
