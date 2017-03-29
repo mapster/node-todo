@@ -37,11 +37,12 @@ Instructors must speak about the following topics
     * https://cloud.google.com/sdk/docs
     * project: sinuous-tine-156112
     * Follow the quickstart guide for your O/S
+2. Generate project
+   1. Go to https://start.spring.io/
+   2. Fill in the form and add 'web' as dependendy
+   3. Click on generate and unzip somewhere on your computer
 2. Launch IntelliJ
-    1. Create new project with Spring Initializr
-    2. Enter groupId and artifactId
-    3. Dependencies: Web/Web
-    4. Complete project
+    1. Import the generated project 
 3. Add the following to the ```<plugins>``` section of pom.xml
 ```
 <plugin>
