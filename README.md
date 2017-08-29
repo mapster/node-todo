@@ -35,7 +35,7 @@ Instructors must speak about the following topics
 ## Setup
 1. Install google-cloud-sdk:
     * https://cloud.google.com/sdk/docs
-    * project: sinuous-tine-156112
+    * project: computas-universitet
     * Follow the quickstart guide for your O/S
 2. Generate project
    1. Go to https://start.spring.io/
@@ -48,7 +48,7 @@ Instructors must speak about the following topics
 <plugin>
     <groupId>com.google.cloud.tools</groupId>
     <artifactId>appengine-maven-plugin</artifactId>
-    <version>1.0.0</version>
+    <version>1.9.54</version>
 </plugin>
 ```
 4. Create file ```src/main/appengine/app.yaml``` replace ```<your service>``` with a unique identity for your backend
