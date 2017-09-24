@@ -73,6 +73,7 @@ manual_scaling:
         * Returns the list of existing _Todo_-elements
     * ```POST /api/todos```
         * Accepts a _Todo_-element as RequestBody (payload)
+        * Assigns a unique id to the todo note
         * Adds the _Todo_-element to the list of _Todo_-elements
         * Returns the list of existing _Todo_-elements (including the new)
     * ```DELETE /api/todos/{id}```
