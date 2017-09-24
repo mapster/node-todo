@@ -42,13 +42,13 @@ Instructors must speak about the following topics
    2. Fill in the form and add 'web' as dependendy
    3. Click on generate and unzip somewhere on your computer
 2. Launch IntelliJ
-    1. Import the generated project 
+    1. Open the generated project 
 3. Add the following to the ```<plugins>``` section of pom.xml
 ```
 <plugin>
     <groupId>com.google.cloud.tools</groupId>
     <artifactId>appengine-maven-plugin</artifactId>
-    <version>1.9.54</version>
+    <version>1.3.1</version>
 </plugin>
 ```
 4. Create file ```src/main/appengine/app.yaml``` replace ```<your service>``` with a unique identity for your backend
